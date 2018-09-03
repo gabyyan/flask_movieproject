@@ -1,0 +1,102 @@
+
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: Microsoft Yahei;
+    }
+
+    .navbar{
+        background: white;
+        height: 40px;
+        width: 100%;
+        font-size: 14px;
+        /*font-weight: 500;*/
+        color: #636363;
+        box-shadow: 2px 4px 6px #C0C0C0
+    }
+    .container{
+        height: 30px;
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .logoicon{
+        float: left;
+        width: 100px;
+        line-height: 30px;
+        height: 30px;
+        margin-left: 250px;
+    }
+    .icon_movieboard{
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+    }
+    .mir_movie{
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        font-size: 20px;
+        font-weight: 900;
+        color: grey
+    }
+
+    .search{
+        float: left;
+        width: 225px;
+        line-height: 30px;
+        height: 30px;
+        margin-left: 100px;
+    }
+    .search input{
+        color: grey;
+    }
+    #nav_input{
+        height: 28px;
+        width: 150px;
+        vertical-align: middle;
+        border: solid gray 1px;
+        margin-top: 0;
+        outline:none;
+    }
+    #nav_button{
+        background: white;
+        height: 30px;
+        width: 65px;
+        vertical-align: middle;
+        border: solid gray 1px;
+        border-left: 0;
+        outline:none;
+    }
+
+
+    .operate{
+        width: 350px;
+        line-height: 30px;
+        height: 30px;
+        margin-left: 150px;
+        float: left;
+    }
+    .everyoperate{
+        float: left;
+        margin-left: 15px;
+    }
+    a{
+        text-decoration: none;
+    }
+    .navbar a:link{
+        color: black;
+    }
+    .navbar a:visited{color: darkred}
+    .navbar a:hover{color: mediumvioletred    }
+    .navbar a:active{color: aqua}
+
+
+
+    .foot{
+        width: 410px;
+        margin-left:500px;
+        margin-top: 50px;
+        height: 30px;
+        line-height: 35px;
+    }

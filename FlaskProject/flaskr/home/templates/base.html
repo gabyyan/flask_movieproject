@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title><link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='base.css') }}">
+    <script src="{{ url_for('home.static',filename='jquery-3.3.1.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('home.static',filename='font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css') }}">
+    <link rel="stylesheet" type="text/css"  href="//at.alicdn.com/t/font_815570_1i9qrl6wq33.css">
+    <script>console.log("{{ url_for('home.static',filename='base.css') }}")</script>
+
+    {% block head %}
+
+    {% endblock %}
+
+</head>
+
+<body>
+
+<div class="navbar" id="navbar">
+    <div class="container">
+
+        <div class="logoicon">
+            <span class="icon_movieboard"><i style="font-size: 28px;" id="iconfont" class="iconfont icon-ic_clip_top_movie"></i></span>
+            <span class="mir_movie">微电影</span>
+        </div>
+
+        <div class="search">
+            <form>
+                <input id="nav_input" type="text" value=" 请输入电影名！"
+                       onclick="javascript:if(this.value==' 请输入电影名！'){this.value='';this.style.color='black'}"
+                       onblur="javascript:if(this.value==''){this.value=' 请输入电影名！';this.style.color='grey'}"
+                       name="searchmovie"><button id="nav_button" type="submit" name="search">&nbsp;
+                <i class="fa fa-search" aria-hidden="true"></i> 搜索&nbsp;&nbsp;
+                </button>
+{#                <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>#}
+            </form>
+        </div>
+
+        <div class="operate">
+            <div class="everyoperate">
+                <span class="nav_icon" id="icon_filmstrip"><i class="fa fa-film" aria-hidden="true"></i></span>
+                <a class="nav_operate" href="#" id="movie">电影</a>
+            </div>
+            <div class="everyoperate">
+                <span class="nav_icon" id="icon_login"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
+                <a class="nav_operate" href="#" id="login">登录</a>
+            </div>
+            <div class="everyoperate">
+                <span class="nav_icon" id="icon_register"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                <a class="nav_operate" href="/regist" id="register">注册</a>
+            </div>
+            <div class="everyoperate">
+                <span class="nav_icon" id="icon_exit"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                <a class="nav_operate" href="#" id="exit">退出</a>
+            </div>
+            <div class="everyoperate">
+                <span class="nav_icon" id="icon_vipuser"><i class="fa fa-user" aria-hidden="true"></i></span>
+                <a class="nav_operate" href="#" id="vipuser">会员</a>
+            </div>
+        </div>
+    </div>
+
+    {% block navbar %}
+
+    {% endblock %}
+</div>
+
+
+<div class="page" id="page">
+    {% block page %}
+
+    {% endblock %}
+
+<div class="footerpage"></div>
+</div>
+
+
+<div class="foot">
+    <span style="font-size: 25px;display: inline-block;vertical-align: middle">©</span>
+    <span style="display: inline-block;vertical-align: middle">2017 flaskmovie.imooc.com 京ICP备 13046642号 -2</span>
+</div>
+
+<script>
+    {% block js %}
+    {% endblock %}
+</script>
+
+
+</body>
+</html>

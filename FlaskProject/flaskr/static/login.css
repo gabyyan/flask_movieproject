@@ -1,0 +1,52 @@
+    .loginframe{
+        width: 350px;
+        height: 255px;
+        border: solid #336699 1px;
+        margin-left: 500px;
+        margin-top: 150px;
+        font-size: 16px;
+    }
+    .loginformtitle{
+        width: 350px;
+        height: 35px;
+        background-color: #336699;
+    }
+    .logform_prompt{
+        font-size: 20px;
+        color:white;
+        padding-top: 5px;
+        vertical-align: middle;
+    }
+    .acount, .password{
+        margin-left: 20px;
+        width: 310px;
+        height: 35px;
+        line-height: 40px;
+        color: #202020;
+    }
+    #usrinput, #pwdinput{
+        margin-left: 20px;
+        width: 310px;
+        height: 35px;
+        line-height: 40px;
+        border: solid grey 1px;
+        color: #505050 ;
+    }
+    #logsubmit{
+        margin-left: 20px;
+        width: 312px;
+        height: 40px;
+        border: solid grey 1px;
+        background-color: #29a151;
+        color: white;
+        vertical-align: middle;
+    }
+
+     .error_warning{
+         height: 20px;
+         font-size: 15px;
+         color: red;
+         vertical-align: middle;
+         text-align: center;
+         font-style:italic;
+     }

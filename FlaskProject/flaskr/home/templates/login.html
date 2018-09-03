@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+    {% block head %}
+        <title>Title</title><link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='login.css') }}">
+    {% endblock %}
+
+
+{% block page %}
+    <div class="loginframe">
+
+        <div class="loginformtitle">
+            <div class="logform_prompt">&nbsp;
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+                <span>会员登录</span>
+            </div>
+        </div>
+
+        <div class="logform">
+            <form action="/login" method="POST">
+
+                <div class="acount">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span>{{ lForm.account.label }}</span>
+                </div>
+
+                <div>
+                    {{ lForm.account(id="usrinput") }}
+                </div>
+
+
+                <div class="password">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <span>{{ lForm.pwd.label }}</span>
+                </div>
+
+                <div>
+                    {{ lForm.pwd(id="pwdinput") }}
+                </div>
+
+                <div class="error_warning">
+                    {{ error }}
+                </div>
+
+                <input id="logsubmit" type="submit" value="登录">
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{########################################   这里是不用 wtf 插件，自己写的表单     ##############################################}
+{#{% extends "base.html" %}#}
+{##}
+{#    {% block head %}#}
+{#        <title>Title</title><link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='login.css') }}">#}
+{#    {% endblock %}#}
+{##}
+{##}
+{#{% block page %}#}
+{#    <div class="loginframe">#}
+{##}
+{#        <div class="loginformtitle">#}
+{#            <div class="logform_prompt">&nbsp;#}
+{#                <i class="fa fa-sign-in" aria-hidden="true"></i>#}
+{#                <span>会员登录</span>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="logform">#}
+{#            <form action="/login" method="POST">#}
+{##}
+{#                <div class="acount">#}
+{#                    <i class="fa fa-user" aria-hidden="true"></i>#}
+{#                    <span>帐号</span>#}
+{#                </div>#}
+{##}
+{#                <input id="usrinput" type="text" value="   用户名/邮箱/手机号码"#}
+{#                       onclick="javascript:if(this.value=='   用户名/邮箱/手机号码'){this.value='';this.style.color='black'}"#}
+{#                       onblur="javascript:if(this.value==''){this.value='   用户名/邮箱/手机号码';this.style.color='grey'}"#}
+{#                       name="usr">#}
+{##}
+{##}
+{#                <div class="password">#}
+{#                    <i class="fa fa-lock" aria-hidden="true"></i>#}
+{#                    <span>密码</span>#}
+{#                </div>#}
+{##}
+{#                <input id="pwdinput" type="text" value="   密码"#}
+{#                       onclick="javascript:if(this.value='   密码'){this.value='';this.style.color='black'}"#}
+{#                       onblur="javascript:if(this.value==''){this.value='   密码';this.style.color='grey'}"#}
+{#                       name="pwd">#}
+{##}
+{#                <div class="error_warning">#}
+{#                    {{ error }}#}
+{#                </div>#}
+{##}
+{#                <input id="logsubmit" type="submit" value="登录">#}
+{#                <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{##}
+{#{% endblock %}#}
+
+
+
