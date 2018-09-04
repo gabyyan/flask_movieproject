@@ -1,11 +1,69 @@
-{% extends "base.html" %}
+{% extends "base_bootstrap.html" %}
 
     {% block head %}
-        <title>Title</title><link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='login.css') }}">
+        <title>Login</title>
+{#        <link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='login.css') }}">#}
+        <style>
+            .loginframe{
+                width: 400px;
+                height: 310px;
+                border: solid #336699 1px;
+                margin-left: 370px;
+                margin-top: 100px;
+                font-size: 16px;
+            }
+            .loginformtitle{
+                width: 400px;
+                height: 40px;
+                background-color: #336699;
+            }
+            .logform_prompt{
+                font-size: 20px;
+                color:white;
+                padding-top: 5px;
+                vertical-align: middle;
+                margin-left: 10px;
+            }
+            .acount, .password{
+                margin-left: 20px;
+                width: 360px;
+                height: 40px;
+                line-height: 45px;
+                color: #202020;
+            }
+            #usrinput, #pwdinput{
+                margin-left: 20px;
+                width: 360px;
+                height: 45px;
+                line-height: 50px;
+                border: solid grey 1px;
+                color: #505050 ;
+            }
+            #logsubmit{
+                margin-left: 20px;
+                width: 362px;
+                height: 45px;
+                border: solid grey 1px;
+                background-color: #29a151;
+                color: white;
+                vertical-align: middle;
+            }
+
+             .error_warning{
+                 height: 25px;
+                 font-size: 15px;
+                 color: red;
+                 vertical-align: middle;
+                 text-align: center;
+                 font-style:italic;
+             }
+
+        </style>
     {% endblock %}
 
 
-{% block page %}
+{% block container %}
+
     <div class="loginframe">
 
         <div class="loginformtitle">

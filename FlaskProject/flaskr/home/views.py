@@ -32,7 +32,7 @@ def login():
                 else:
                     return render_template("login.html", lForm=login_form, error="用户名或密码不正确！")
             else:
-                search_usr = model.user.query.filter_by(nickname=account).first()
+                search_usr = model.user.query.filter_by(userName=account).first()
                 print(type(search_usr))
                 print(search_usr)
                 if search_usr is not None and search_usr.pwd == password_Md5:
@@ -52,14 +52,25 @@ def regist():
 
     if regist_form.validate_on_submit():
         email = request.form.get('email', None)
-        nickname = request.form.get('nickname', None)
+        username = request.form.get('username', None)
         phone = request.form.get('phone', None)
-        pwd = request.form.get('pwd', None)
-        # info = model.user(email=regist_form.email.data, nickname=regist_form.nickname.data, phone=regist_form.phone.data, pwd=regist_form.pwd.data)
+        # info = model.user(email=regist_form.email.data, userName=regist_form.username.data, phone=regist_form.phone.data, pwd=regist_form.pwd.data)
         pwd_temp = hashlib.md5(request.form['pwd'].encode('utf8'))     # md5加密
         password = pwd_temp.hexdigest()
-        info = model.user(email=email, nickname=nickname, phone=phone, pwd=password)
+        info = model.user(email=email, userName=username, phone=phone, pwd=password)
         db.session.add(info)
         db.session.commit()
         return redirect('/login')
     return render_template("regist.html", rForm=regist_form)
+
+
+@homes.route('/index')
+def index():
+    return render_template("index.html")
+
+@homes.route('/animation')
+def animation():
+    return render_template("animation.html")
+
+
+

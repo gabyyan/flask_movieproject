@@ -1,0 +1,479 @@
+{% extends "base_bootstrap.html" %}
+
+
+{% block head %}
+    <title>Index</title>
+    <style>
+    #switchable{
+        height: 380px;
+        border: solid black 1px;
+    }
+    #search_conditions{
+        {#height: 900px;#}
+
+        width: 85%;
+        margin-left: 7.5%;
+        border: solid blue 1px;
+    }
+    .table{
+        margin-bottom: 20px;
+        background-color: white;
+    }
+    #searh_container{
+        margin-top: 40px;
+        padding-right: 15px;
+        padding-left: 15px;
+        border: solid red 1px;
+    }
+    .search_label{
+        display: inline-block;
+        padding: 3px 6px;
+        font-size: 75%;
+        font-weight: 900;
+        line-height: 1;
+        color: #fff;
+    }
+    .glyphicon {
+        margin-right: 5px
+    }
+    #searh_container .btn{
+        width: 110px;
+    }
+    .search_result{
+        border: solid greenyellow 1px;
+    }
+    .movieitem{
+        width: 308px;
+        height: 150px;
+        float: left;
+    }
+    .movie_content{
+        margin: 0 15px 20px 15px;
+        background-color: white;
+
+    }
+    .search_result .btn{
+        margin: 10px 0 10px 0;
+        width: 230px;
+        height: 40px;
+    }
+    .movie_desc_info{
+        padding: 5px 10px 10px 20px;
+    }
+
+    </style>
+{% endblock %}
+
+
+{% block mypage_container %}
+
+<!--- 图片轮播，先不写 --->
+<section id="hotmovie" style="margin-top:76px">
+    <div class="container">
+        <div class="row wow fadeInRight" data-wow-delay="0.6s">
+            <div class="row">
+                <iframe class="wow fadeIn" width="100%" height="375px" frameborder=0 scrolling=no src="../animation"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+<!--轮播图片 -->
+
+<!-- 搜索条件栏 -->
+
+<div id="search_conditions">
+    <div id="searh_container">
+        <table class="table table-bordered">
+            <tr>
+                <td style="width: 10%">电影标签</td>
+                <td style="width: 90%">
+                    <a class="search_label">
+                        <button type="button" class="btn btn-info btn-xs">
+                            <span class="glyphicon glyphicon-tag"></span>
+                            标签一
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-info btn-xs">
+                            <span class="glyphicon glyphicon-tag"></span>
+                            标签一
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-info btn-xs">
+                            <span class="glyphicon glyphicon-tag"></span>
+                            标签一
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-info btn-xs">
+                            <span class="glyphicon glyphicon-tag"></span>
+                            标签一
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-info btn-xs">
+                            <span class="glyphicon glyphicon-tag"></span>
+                            标签一
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 10%">电影星级</td>
+                <td style="width: 90%">
+                    <a class="search_label">
+                        <button type="button" class="btn btn-warning btn-xs">
+                            <span class="glyphicon glyphicon-star"></span>
+                            一星
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-warning btn-xs">
+                            <span class="glyphicon glyphicon-star"></span>
+                            二星
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-warning btn-xs">
+                            <span class="glyphicon glyphicon-star"></span>
+                            三星
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-warning btn-xs">
+                            <span class="glyphicon glyphicon-star"></span>
+                            四星
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-warning btn-xs">
+                            <span class="glyphicon glyphicon-star"></span>
+                            五星
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>上映时间</td>
+                <td>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-default btn-xs" style="background-color: grey; color: white">
+                            <span class="glyphicon glyphicon-time"></span>
+                            最近
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-default btn-xs" style="background-color: grey; color: white">
+                            <span class="glyphicon glyphicon-time"></span>
+                            2017
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-default btn-xs" style="background-color: grey; color: white">
+                            <span class="glyphicon glyphicon-time"></span>
+                            2016
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-default btn-xs" style="background-color: grey; color: white">
+                            <span class="glyphicon glyphicon-time"></span>
+                            2015
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-default btn-xs" style="background-color: grey; color: white">
+                            <span class="glyphicon glyphicon-time"></span>
+                            更早
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 10%">播放数量</td>
+                <td style="width: 90%">
+                    <a class="search_label">
+                        <button type="button" class="btn btn-success btn-xs">
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            从高到低
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-danger btn-xs">
+                            <span class="glyphicon glyphicon-arrow-up"></span>
+                            从低到高
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 10%">评论数量</td>
+                <td style="width: 90%">
+                    <a class="search_label">
+                        <button type="button" class="btn btn-success btn-xs">
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                            从高到低
+                        </button>
+                    </a>
+                    <a class="search_label">
+                        <button type="button" class="btn btn-danger btn-xs">
+                            <span class="glyphicon glyphicon-arrow-up"></span>
+                            从低到高
+                        </button>
+                    </a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <!-- 搜索条件栏 -->
+
+    <!-- 结果栏 -->
+    <div class="search_result">
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <p>环太平洋</p>
+                    <div>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-play"></span>
+                            播放
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!--  电影列表 -->
+
+    <nav aria-label="Page navigation" style="clear: both;">
+        <div style="text-align: center">
+            <ul class="pagination" style="">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+
+</div>
+{% endblock %}

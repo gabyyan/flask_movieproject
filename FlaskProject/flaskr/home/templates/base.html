@@ -3,11 +3,117 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Title</title><link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='base.css') }}">
+{#    <title>Title</title><link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='base.css') }}">#}
     <script src="{{ url_for('home.static',filename='jquery-3.3.1.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('home.static',filename='font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css"  href="//at.alicdn.com/t/font_815570_1i9qrl6wq33.css">
     <script>console.log("{{ url_for('home.static',filename='base.css') }}")</script>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Microsoft Yahei;
+        }
+
+        .base_navbar{
+            background: white;
+            height: 60px;
+            width: 100%;
+            font-size: 16px;
+            /*font-weight: 500;*/
+            color: #636363;
+            box-shadow: 2px 4px 6px #C0C0C0
+        }
+        .container{
+            height: 40px;
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .logoicon{
+            float: left;
+            width: 150px;
+            line-height: 40px;
+            height: 40px;
+            margin-left: 100px;
+        }
+        .icon_movieboard{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+        }
+        .mir_movie{
+            display: inline-block;
+            height: 40px;
+            line-height: 40px;
+            font-size: 28px;
+            font-weight: 900;
+            color: grey
+        }
+
+        .search{
+            float: left;
+            width: 300px;
+            line-height: 40px;
+            height: 40px;
+            margin-left: 150px;
+            /*margin-top: 5px;*/
+        }
+        .search input{
+            color: grey;
+        }
+        #nav_input{
+            height: 35px;
+            width: 220px;
+            vertical-align: middle;
+            border: solid #b0b0b0 1px;
+            margin-top: 0;
+            outline:none;
+        }
+        #nav_button{
+            background: white;
+            height: 38px;
+            width: 70px;
+            vertical-align: middle;
+            border: solid #b0b0b0 1px;
+            border-left: 0;
+            outline:none;
+        }
+
+
+        .operate{
+            width: 420px;
+            line-height: 30px;
+            height: 30px;
+            margin-left: 290px;
+            margin-top: 5px;
+            float: left;
+        }
+        .everyoperate{
+            float: left;
+            margin-left: 30px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .base_navbar a:link{
+            color: black;
+        }
+        .operate a:visited{color: darkred}
+        .operate a:hover{color: mediumvioletred    }
+        .operate a:active{color: aqua}
+
+
+
+        .foot{
+            width: 410px;
+            margin-left:500px;
+            margin-top: 50px;
+            height: 30px;
+            line-height: 35px;
+        }
+    </style>
 
     {% block head %}
 
@@ -21,8 +127,10 @@
     <div class="container">
 
         <div class="logoicon">
-            <span class="icon_movieboard"><i style="font-size: 28px;" id="iconfont" class="iconfont icon-ic_clip_top_movie"></i></span>
-            <span class="mir_movie">微电影</span>
+            <a href="/index">
+                <span class="icon_movieboard"><i style="font-size: 28px;" id="iconfont" class="iconfont icon-ic_clip_top_movie"></i></span>
+                <span class="mir_movie">微电影</span>
+            </a>
         </div>
 
         <div class="search">
@@ -44,7 +152,7 @@
             </div>
             <div class="everyoperate">
                 <span class="nav_icon" id="icon_login"><i class="fa fa-sign-in" aria-hidden="true"></i></span>
-                <a class="nav_operate" href="#" id="login">登录</a>
+                <a class="nav_operate" href="/login" id="login">登录</a>
             </div>
             <div class="everyoperate">
                 <span class="nav_icon" id="icon_register"><i class="fa fa-plus" aria-hidden="true"></i></span>

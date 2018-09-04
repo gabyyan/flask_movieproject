@@ -1,65 +1,71 @@
-{% extends "base.html" %}
+{% extends "base_bootstrap.html" %}
 
     {% block head %}
-        <title>Title</title><link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='regist.css') }}">
+{#        <title>Title</title><link  type="text/css" rel="stylesheet" href="{{ url_for('home.static',filename='regist.css') }}">#}
         <style>
         .regist_form{
-            width: 300px;
-            height: 430px;
-            margin-left: 550px;
-            margin-top: 100px;
+            width: 400px;
+            height: 490px;
+            margin-left: 370px;
+            margin-top: 40px;
             border: solid #D1E9E9 1px;
         }
         .registformtitle{
-            width: 300px;
-            height: 35px;
-            line-height: 35px;
+            width: 400px;
+            height: 45px;
+            line-height: 45px;
             background-color:#D1E9E9 ;
+            font-size: 18px;
             color: 	#006030;
         }
+
         .rform_content{
-            margin: 5px 15px;
+            margin: 0 20px;
         }
         .rForm_item{
-            width: 270px;
-            height: 30px;
+            width: 360px;
+            height: 35px;
 
         }
         .icon_rForm , .regist_word, #icon_rForm{
             display: inline-block;
-            height: 30px;
-            line-height: 30px;
-            font-family: Microsoft Yahei;
-
+            height: 35px;
+            line-height: 35px;
+            color: #464646;
+        }
+        #rForm_title_word{
+            color: 	#006030;
         }
 
         .r_inputbox{
             background-color: white;
-            width: 268px;
-            height: 32px;
-            line-height: 35px;
-            border:solid gray 1px;
+            width: 358px;
+            height: 39px;
+            line-height: 42px;
+            border:solid #b7b7b7 1px;
         }
         .r_submitbox{
             background-color: #29a151;
             color: white;
-            width: 270px;
-            height: 40px;
-            line-height: 35px;
-            border:solid gray 1px;
+            width: 360px;
+            height: 45px;
+            line-height: 40px;
+            border:solid #808080 1px;
             margin-top: 15px;
             font-size: 16px;
         }
+
         </style>
     {% endblock %}
 
 
-{% block page %}
+{% block container %}
+
     <div class="regist_form">
         <div class="registformtitle">
             <div class="rform_prompt">&nbsp;
                 <i class="fa fa-plus" aria-hidden="true" style="margin-left: 10px;"></i>&nbsp;
-                <span class="regist_word">会员注册</span>
+                <span class="regist_word" id="rForm_title_word">会员注册</span>
             </div>
         </div>
 
@@ -67,15 +73,15 @@
             <form method="POST" action="/regist">
 
                 <div class="rForm_item">
-                    <span class="icon_rForm" id="icon_nickname"><i class="fa fa-user" aria-hidden="true"></i></span>&nbsp;
-                    <span class="regist_word" id="nickname">{{ rForm.nickname.label }}</span>
-                    {% for error in rForm.nickname.errors %}
+                    <span class="icon_rForm" id="icon_userName"><i class="fa fa-user" aria-hidden="true"></i></span>&nbsp;
+                    <span class="regist_word" id="userName">{{ rForm.username.label }}</span>
+                    {% for error in rForm.username.errors %}
                     <span style="color: red;">{{ error }}</span>
                     {% endfor %}
                 </div>
 
                 <div class="rform_input">
-                    {{ rForm.nickname(class='r_inputbox',id="rForm_nickname_input") }}
+                    {{ rForm.username(class='r_inputbox') }}
                 </div>
 
 
@@ -88,7 +94,7 @@
                 </div>
 
                 <div class="rform_input">
-                    {{ rForm.email(class='r_inputbox',id="rForm_email_input") }}
+                    {{ rForm.email(class='r_inputbox') }}
                 </div>
 
 
@@ -101,7 +107,7 @@
                 </div>
 
                 <div class="rform_input">
-                    {{ rForm.phone(class='r_inputbox',id="rForm_phone_input") }}
+                    {{ rForm.phone(class='r_inputbox') }}
                 </div>
 
 
@@ -114,7 +120,7 @@
                 </div>
 
                 <div class="rform_input">
-                    {{ rForm.pwd(class='r_inputbox',id="rForm_pwd_input") }}
+                    {{ rForm.pwd(class='r_inputbox') }}
                 </div>
 
                 <div class="rForm_item">
@@ -127,10 +133,9 @@
 
 
                 <div class="rform_input">
-                    {{ rForm.checkpwd(class='r_inputbox',id="rForm_checkpwd_input") }}
+                    {{ rForm.checkpwd(class='r_inputbox') }}
                 </div>
 
-{#                <input class="r_submitbox" type="submit" value='注册'>#}
                 <div>
                     {{ rForm.submit(class="r_submitbox") }}
                 </div>

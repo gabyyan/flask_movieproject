@@ -9,9 +9,9 @@ def gen_id():
 
 class user(db.Model):
     id = db.Column(db.INTEGER, primary_key=True, autoincrement=True)
-    userName = db.Column(db.String(30), nullable=True)
+    userName = db.Column(db.String(30), nullable=False)
     pwd = db.Column(db.String(32), nullable=False)
-    nickname = db.Column(db.String(50), nullable=False)
+    nickname = db.Column(db.String(50), nullable=True)
     email = db.Column(db.String(30), nullable=False)
     phone = db.Column(db.String(30), nullable=False)
     info = db.Column(db.Text, nullable=True)
