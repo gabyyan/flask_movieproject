@@ -72,9 +72,20 @@ def index():
 def play():
     return render_template("play.html")
 
+
+@homes.route('/user')
+def user():
+    return render_template("user.html")
+
+@homes.route('/pwd')
+def pwd():
+    return render_template("pwd.html")
+
 @homes.route('/animation')
 def animation():
     return render_template("animation.html")
 
 
-
+@homes.route('/test')
+def test():
+    return render_template("test.html")
