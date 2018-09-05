@@ -1,0 +1,204 @@
+{% extends "base_bootstrap.html" %}
+
+{% block head %}
+    <title>微电影</title>
+    <script src="static/jwplayer/jwplayer.js"></script>
+    <script type="text/javascript">
+        jwplayer.key = "YbfZZ4wMZfXIEBNNSswe5PKx8wKVLUN4";
+    </script>
+    <script src="static/jwplayer/jwplayer.flash.swf"></script>
+
+    <style>
+    .film_introduction{
+        float: left;
+        height: 500px;
+        width: 400px;
+        margin-left: 10px;
+    }
+    .introduc_head{
+        height: 40px;
+        background-color: #D1E9E9;
+        color: #1a6077;
+        font-size: 18px;
+    }
+    .dianyingjieshao{
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+    .introduc_body{
+        height: 459px;
+    }
+    .introduc_body .glyphicon{
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .introduc_table tr{
+        height: 40px;
+    }
+    .introduc_grey{
+        font-size: 16px;
+        font-style: italic;
+        color: grey;
+        width: 120px;
+    }
+    .movie_comment{
+        clear: both;
+        width: 86%;
+        margin-left: 7%;
+    }
+    </style>
+{% endblock %}
+
+{% block mypage_container %}
+
+    <div style="width: 700px;height: auto;background-color: #1C9982;margin-left: 7%;float: left">
+        <div id="moviecontainer">Loading the player ...</div>
+    </div>
+
+    <div class="film_introduction">
+        <div class="introduc_head">
+            <p class="dianyingjieshao">
+                <span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+                电影介绍
+            </p>
+        </div>
+
+        <div class="introduc_body">
+            <table class="table" id="introduc_table" style="border:solid #D1E9E9 1px">
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                        片名
+                    </td>
+                    <td>
+                        环太平洋
+                    </td>
+                </tr>
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                        标签
+                    </td>
+                    <td>
+                        科幻
+                    </td>
+                </tr>
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                        片场
+                    </td>
+                    <td>
+                        05:04
+                    </td>
+                </tr>
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        地区
+                    </td>
+                    <td>
+                        美国
+                    </td>
+                </tr>
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        星级
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                        <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                        <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                        <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        上映时间
+                    </td>
+                    <td>
+                        2013年7月12日
+                    </td>
+                </tr>
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                         播放数量
+                    </td>
+                    <td>
+                        1000
+                    </td>
+                </tr>
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                         评论数量
+                    </td>
+                    <td>
+                        1000
+                    </td>
+                </tr>
+                <tr>
+                    <td class="introduc_grey word">
+                        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                         影片介绍
+                    </td>
+                    <td height="140px">
+                        该片主要讲述了人类为了抵抗怪兽的进攻，研制出了高大的机器战士与来犯怪兽进行对抗的故事
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="movie_comment">
+    <div class="comment_head">
+        <p>
+            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+            电影评论
+        </p>
+    </div>
+
+    <div class="comment_body">
+        <div class="login_before_comment">
+            <strong>
+                请先
+                <a>登录</a>
+                ，才可参加评论
+            </strong>
+            <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+
+        <div class="allcomment_count">
+            <p>全部评论(5)</p>
+        </div>
+
+        <div class="form_group">
+            <p>内容</p>
+            <div id="input_content" ></div>
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}
+
+
+{% block js %}
+	jwplayer("moviecontainer").setup({
+		flashplayer: "static/jwplayer/jwplayer.flash.swf",
+        file: "static/video/htpy.mp4",
+        height: 500,
+        width: 700
+	});
+
+
+{% endblock %}
+
+
+

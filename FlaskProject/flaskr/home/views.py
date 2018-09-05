@@ -42,7 +42,6 @@ def login():
         except Exception as e:
             print("\n出错啦\n", e)
             return render_template("login.html", error="Error:500,请刷新后重新登录", lForm=login_form)
-
     return render_template("login.html", lForm=login_form)
 
 
@@ -67,6 +66,11 @@ def regist():
 @homes.route('/index')
 def index():
     return render_template("index.html")
+
+
+@homes.route('/play')
+def play():
+    return render_template("play.html")
 
 @homes.route('/animation')
 def animation():

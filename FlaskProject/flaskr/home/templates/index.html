@@ -4,26 +4,17 @@
 {% block head %}
     <title>Index</title>
     <style>
-    #switchable{
-        height: 380px;
-        border: solid black 1px;
-    }
-    #search_conditions{
-        {#height: 900px;#}
-
-        width: 85%;
-        margin-left: 7.5%;
-        border: solid blue 1px;
+    #search_conditions, footer{
+        height: auto;
+        background-color: #f7f7f7;
     }
     .table{
         margin-bottom: 20px;
         background-color: white;
     }
     #searh_container{
-        margin-top: 40px;
-        padding-right: 15px;
-        padding-left: 15px;
-        border: solid red 1px;
+        margin-top: 20px;
+        {#border: solid red 1px;#}
     }
     .search_label{
         display: inline-block;
@@ -34,42 +25,54 @@
         color: #fff;
     }
     .glyphicon {
-        margin-right: 5px
+        margin-right: 5px;
+        color:#FFD119
     }
     #searh_container .btn{
         width: 110px;
     }
     .search_result{
-        border: solid greenyellow 1px;
+        {#border: solid greenyellow 1px;#}
+        height: auto;
     }
     .movieitem{
-        width: 308px;
-        height: 150px;
+        width: 285px;
+        {#height: 150px;#}
+        height: auto;
         float: left;
     }
     .movie_content{
-        margin: 0 15px 20px 15px;
+        margin: 0 10px 20px 5px;
         background-color: white;
 
     }
     .search_result .btn{
         margin: 10px 0 10px 0;
-        width: 230px;
+        width: 220px;
         height: 40px;
     }
     .movie_desc_info{
-        padding: 5px 10px 10px 20px;
+        padding: 10px 15px 10px 25px;
     }
-
+    .movieitem img{
+        height: 290px;
+        width: 220px;
+        margin-top: 10px;
+    }
+    .movie_name{
+        font-style: oblique;
+        font-size: 16px;
+        color: #a3a3a3;
+    }
     </style>
 {% endblock %}
 
 
-{% block mypage_container %}
+{% block body_page %}
 
 <!--- 图片轮播，先不写 --->
 <section id="hotmovie" style="margin-top:76px">
-    <div class="container">
+    <div style="padding-left: 8%;padding-right: 8%;">
         <div class="row wow fadeInRight" data-wow-delay="0.6s">
             <div class="row">
                 <iframe class="wow fadeIn" width="100%" height="375px" frameborder=0 scrolling=no src="../animation"></iframe>
@@ -80,9 +83,8 @@
 <!--轮播图片 -->
 
 <!-- 搜索条件栏 -->
-
-<div id="search_conditions">
-    <div id="searh_container">
+<div id="search_conditions" style="padding-left: 6%;padding-right: 6%;">
+    <div id="searh_container" >
         <table class="table table-bordered">
             <tr>
                 <td style="width: 10%">电影标签</td>
@@ -230,224 +232,259 @@
 
     <!-- 结果栏 -->
     <div class="search_result">
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="movieitem">
-            <div class="movie_content">
-                <div class="movie_desc_info">
-                    <p>环太平洋</p>
-                    <div>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-                    </div>
-                    <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-play"></span>
-                            播放
-                    </button>
-                </div>
-            </div>
-        </div>
 
-
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/movie.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="/play" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/aiqing.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/beifang.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/gan.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/gege.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/qigchun.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/xiaoshenke.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/yichuhaoxi.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/zhaohua.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/movie.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/movie.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
+        <div class="movieitem">
+            <div class="movie_content">
+                <div class="movie_desc_info">
+                    <img  src="../static/pic/movie.jpg">
+                    <div style="width: 230px;">
+                        <div class="movie_name">环太平洋</div>
+                        <div>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                            <span class="glyphicon glyphicon-star-empty" style="color:#FFD119"></span>
+                        </div>
+                    </div>
+                    <a href="play.html" class="btn btn-primary" target="_blank" role="button">
+                        <span class="glyphicon glyphicon-play"></span>
+                        &nbsp;播放
+                        </a>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!--  电影列表 -->

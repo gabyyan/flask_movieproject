@@ -22,9 +22,6 @@
         .navbar-brand>img {
             display: inline;
         }
-        .mypage_container{
-
-        }
     </style>
 
     {% block head %}
@@ -87,10 +84,17 @@
 
 
 <!--内容-->
-<div class="mypage_container" style="margin-top:76px">
-    {% block mypage_container %}
+{#<div class="mypage_container" style="margin-top:76px">#}
+<div>
+    <div class="container">
 
-    {% endblock %}
+        {% block mypage_container %}
+
+        {% endblock %}
+    </div>
+
+{% block body_page %}
+{% endblock %}
 </div>
 <!--内容-->
 
@@ -112,8 +116,9 @@
 
 <script>
 
-{%  block script %}
+{% block js %}
 {% endblock %}
 </script>
+
 </body>
 </html>
