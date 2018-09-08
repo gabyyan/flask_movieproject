@@ -1,9 +1,7 @@
 from . import homes
-from flask import render_template, redirect, request, flash
-from flask import url_for, current_app
+from flask import render_template, redirect, request
 from flaskr.home.form import RegistForm, LoginForm
-from flaskr.home import model
-from flaskr import db
+from flaskr import db, model
 import re
 import hashlib
 
@@ -76,6 +74,7 @@ def play():
 @homes.route('/user')
 def user():
     return render_template("user.html")
+
 
 @homes.route('/pwd')
 def pwd():

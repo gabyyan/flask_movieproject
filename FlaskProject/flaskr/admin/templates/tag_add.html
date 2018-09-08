@@ -1,0 +1,29 @@
+{% extends "admin_bootstrap.html" %}
+
+
+{% block content_header %}
+    <li><a href="#"><i class="fa fa-dashboard"></i> 标签管理</a></li>
+    <li class="active">添加标签</li>
+{% endblock %}
+
+
+{% block content_col12 %}
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">添加标签</h3>
+    </div>
+    <form role="form" action="/admin/tag_add" method="POST">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="input_name">标签名称</label>
+                <input type="text" class="form-control" id="input_name" name="input_name" placeholder="请输入标签名称！">
+            </div>
+        </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">添加</button>
+            <span style="font-size: 12px;font-style: italic;color: red;">{{ error }}</span>
+        </div>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+    </form>
+</div>
+{% endblock %}

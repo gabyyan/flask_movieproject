@@ -1,0 +1,45 @@
+{% extends "admin_bootstrap.html" %}
+
+
+{% block content_header %}
+    <li><a href="#"><i class="fa fa-dashboard"></i> 管理员管理</a></li>
+    <li class="active">添加管理员</li>
+{% endblock %}
+
+
+{% block content_col12 %}
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">添加管理员</h3>
+    </div>
+    <form role="form" action="/admin/admin_add" method="POST">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="input_name">管理员名称</label>
+                <input type="text" class="form-control" id="input_name" name="input_name" placeholder="请输入管理员名称！">
+            </div>
+            <div class="form-group">
+                <label for="input_pwd">管理员密码</label>
+                <input type="password" class="form-control" id="input_pwd" name="input_pwd" placeholder="请输入管理员密码！">
+            </div>
+            <div class="form-group">
+                <label for="input_re_pwd">管理员重复密码</label>
+                <input type="password" class="form-control" id="input_re_pwd" name="input_re_pwd"
+                       placeholder="请输入管理员重复密码！">
+            </div>
+            <div class="form-group">
+                <label for="input_role_id">所属角色</label>
+                <select class="form-control" id="input_role_id" name="admin_add_role">
+                    {% for i in rolelists %}
+                        <option name="{{ i.id }}" value="{{ i.name }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">添加</button>
+        </div>
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+    </form>
+</div>
+{% endblock %}

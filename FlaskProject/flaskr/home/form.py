@@ -1,8 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired, Email, EqualTo, Regexp, ValidationError
-from flaskr.home import model
-
+from flaskr import model
 
 class RegistForm(FlaskForm):
     username = StringField('用户名', validators=[DataRequired(' 用户名必须填写！'), Regexp('^[a-zA-Z][a-zA-Z_0-9]{2,19}$', flags=0, message='用户名格式不正确！')], render_kw={'placeholder': '  字母/数字/下划线 3-20位 首位是字母', "style": "font-size:16px"})
