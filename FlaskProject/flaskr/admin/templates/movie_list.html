@@ -50,9 +50,9 @@
                 <td>0</td>
                 <td>{{ i.release_time }}</td>
                 <td>
-                    <a class="label label-success">编辑</a>
+                    <span class="edit_movie"><a class="label label-success"  id="edit_movie">编辑</a></span>
                     &nbsp;
-                    <a class="label label-danger">删除</a>
+                    <span class="del_movie"><a class="label label-danger" id="del_movie">删除</a></span>
                 </td>
             </tr>
             {% endfor %}
@@ -71,4 +71,144 @@
         </ul>
     </div>
 </div>
+
+
+<div class="modal" id="myModal_edit" tabindex="-1">
+    <!-- 窗口声明 -->
+    <div class="modal-dialog">
+        <!-- 内容声明 -->
+        <div class="modal-content">
+            <!-- 头部 -->
+            <div class="modal-header">
+                <button type="button" class="close" name="cancel" data-dismiss="modal">
+                <span>&times;</span>
+                </button>
+                <h4 class="modal-title text-danger">修改标签</h4>
+            </div>
+            <!-- 主体 -->
+            <div class="modal-body">
+                <form id="movie_form">
+                    <div class="form-group">
+                    <label for="movie_id" id="movie_id" style="margin-right: 20px;">id </label>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="title">片名</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="length">片长</label>
+                        <input type="text" class="form-control" id="length" name="length" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="label">标签</label>
+                        <select class="form-control" id="select_tag_id" name="select_tag_id" multiple="multiple">
+                            {% for i in  taglists %}
+                            <option name="{{ i.id }}" value="{{ i.tagName }}">{{ i.tagName }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="area">地区</label>
+                        <input type="text" class="form-control" id="area" name="area" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="star">星级</label>
+                        <input type="text" class="form-control" id="star" name="star" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="release_time">上映时间</label>
+                        <input type="text" class="form-control" id="release_time" name="release_time" placeholder="">
+                    </div>
+                </form>
+            </div>
+            <!-- 注脚 -->
+            <div class="modal-footer">
+                <button type="submit" name="confirm_edit_tag" class="btn btn-default">确定</button>
+                <button type="button" class="btn btn-primary" name="cancel" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-------------- 删除标签 ------------------------>
+<div class="modal" id="myModal_del" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" name="cancel" data-dismiss="modal">
+                <span>&times;</span>
+                </button>
+                <h4 class="modal-title text-danger">删除标签</h4>
+            </div>
+            <div class="modal-body" name="P_label">
+            </div>
+            <div class="modal-footer">
+                <button type="submit" name="confirm_def_tag" class="btn btn-default">确定</button>
+                <button type="button" class="btn btn-primary" name="cancel" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script>
+    $(".edit_movie").click(function () {
+        var postMsg = {};
+        var formdata = {};
+        var the_id;
+        the_id = $(this).parent().prev().prev().prev().prev().prev().prev().prev().prev().prev().text();
+        console.log(the_id);
+        $("#myModal_edit").modal('show');
+        var label_tagid = "<label class='need_to_del' name='find_id'>"+the_id+"</label>";
+        $("label[id='movie_id']").after(label_tagid);
+        $(this).parent().prevAll().each(function(){
+            console.log("11111")
+            console.log($(this).attr('name'));
+            console.log("22222")
+            console.log($("input[name="+$(this).attr('name')+"]"))
+            $("input[name="+$(this).attr('name')+"]").val($(this).text());
+            console.log("3333")
+            console.log($(this).text())
+        });
+    });
+
+        $("button[name='confirm_edit_tag']").click(function(){
+            $('#myModal_edit input').each(function(){
+                formdata[$(this).attr('name')] = $(this).val()
+            });
+            console.log("运行到 点击 confirm ");
+            postMsg={'csrf_token':'{{csrf_token()}}'};
+            postMsg.op='movie_edit';
+            postMsg.id = $("label[name='find_id']").text();
+            $("#tag_form input").each(function(){
+                formdata[$(this).attr('name')] = $(this).val();
+            });
+            var labels =[];
+            $("select[name='select_tag_id'] options:selected").each(function(){
+                labels.push($(this).text())
+            });
+            formdata.label_list = labels;
+            postMsg.formdata=JSON.stringify(formdata);
+            $.post("{{ url_for('.movie_list') }}", postMsg, function(data){
+                    console.log("运行到 ajax ");
+                    if(data == "ok"){
+                        alert("修改成功！");
+                        $(".need_to_del").remove();
+                        window.location.reload();
+                     }
+                    else{
+                        alert("修改失败，请重试");
+                        $(".need_to_del").remove();
+                        window.location.reload();
+                     }
+                 })
+            });
+
+    $('button[name="cancel"]').click(function () {
+        $(".need_to_del").remove();
+    })
+
+    </script>
 {% endblock %}

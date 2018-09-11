@@ -1,7 +1,9 @@
 from . import admins
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, Response
 from flaskr import model
 from flaskr import db
+
+import json
 
 
 @admins.route("/admin")
@@ -28,9 +30,39 @@ def tag_add():
     return render_template("tag_add.html")
 
 
-@admins.route("/admin/tag_list")
+@admins.route("/admin/tag_list", methods=['POST', 'GET'])
 def tag_list():
     taglists = model.tag.query.all()
+    if request.method == "POST":
+        op = request.form.get('op')
+        print("打印op is ????\n", op)
+        if op == "del_tag":
+            id = request.form.get("id", None)
+            try:
+                deltag = model.tag.query.filter_by(id=id).first()
+                db.session.delete(deltag)
+                db.session.commit()
+            except Exception as e:
+                print("打印删除标签的时候出现的错误", e)
+                return "error"
+        elif op == "edit_tag":
+            formdata = request.form.get("formdata", None)
+            formobj = json.loads(formdata)
+            print("打印formObj\n", formobj)
+            tagid = request.form.get("id", None)
+            print("打印 id", tagid)
+            tagName = formobj['tagName']
+            addTime = formobj['addTime']
+            try:
+                edit_tag = model.tag.query.filter_by(id=tagid).first()
+                print("edit_tag\n",edit_tag)
+                edit_tag.tagName = tagName
+                edit_tag.addTime = addTime
+                db.session.commit()
+            except Exception as e:
+                print("打印编辑标签的时候出现的错误", e)
+                return "error"
+        return "ok"
     return render_template("tag_list.html", taglists=taglists)
 
 
@@ -48,18 +80,18 @@ def movie_add():
         choose_tag = request.form.getlist('input_tag_id')
         print("choose_tag", choose_tag)
         ################################################################ input_tag_id  这是建立的多对多的表
-        movie_info=model.movie(title=title, url=url, info=info, logo=logo, star=star, area=area, release_time=release_time, length=length)
+        movie_info = model.movie(title=title, url=url, info=info, logo=logo, star=star, area=area, release_time=release_time, length=length)
         db.session.add(movie_info)
         db.session.commit()
         try:
             for i in choose_tag:
                 themovie = model.movie.query.filter_by(title=title).first()
-                themovie.tags.append(model.tag.filter_by(tagName=i).first())
+                themovie.tags.append(model.tag.query.filter_by(tagName=i).first())
                 db.session.add(themovie)
-                # db.session.commit()
+                db.session.commit()
         except Exception as e:
             print("print error", e)
-            db.session.remove(movie_info)
+            db.session.remove(model.movie.query.filter_by(title=title).first())
             db.session.commit()
             return render_template("movie_add.html", error="添加失败，请刷新重试")
     taglists = model.tag.query.all()
@@ -69,7 +101,27 @@ def movie_add():
 @admins.route("/admin/movie_list")
 def movie_list():
     movielists = model.movie.query.all()
-    return render_template("movie_list.html", movielists=movielists)
+    taglists = model.tag.query.all()
+    if request.method == "POST":
+        op = request.form.get('op',None)
+        the_id = request.form.get('id',None)
+        if op == "movie_edit":
+            formdata = request.form.get('formdata', None)
+            formobj = json.loads(formdata)
+            teacherList = []
+            for i in formobj['label_list']:
+                teacherList.append(model.label.query.filter_by(name=i).first())
+
+            edit_movie = model.movie.query.filter_by(id=the_id).first()
+            print("edit_movie\n", edit_movie)
+            edit_movie.title = formobj['title']
+            edit_movie.length = formobj['length']
+            edit_movie.area = formobj['area']
+            edit_movie.star = formobj['star']
+            edit_movie.release_time = formobj['release_time']
+            edit_movie.tags.set(teacherList)
+            db.session.commit()
+    return render_template("movie_list.html", movielists=movielists, taglists=taglists)
 
 
 @admins.route("/admin/preview_add", methods=['POST', 'GET'])
@@ -97,6 +149,13 @@ def preview_list():
 def user_list():
     userlists = model.user.query.all()
     return render_template("user_list.html", userlists=userlists)
+
+
+@admins.route("/admin/user_view")
+def user_view():
+
+    userlists = model.user.query.all()
+    return render_template("user_view.html", userlists=userlists)
 
 
 @admins.route("/admin/comment_list")
@@ -156,23 +215,24 @@ def role_add():
             roleinfo = model.role(name=name)
             db.session.add(roleinfo)
             db.session.commit()
-            max_id = model.auth.query.order_by(model.auth.id.desc()).first().id
 ###################################################################################这里应该吧 添加的权限保存再角色表的表里
-            for i in range(0, max_id+1):
+            max_id = model.auth.query.order_by(model.auth.id.desc()).first().id
+            for i in range(1, int(max_id)+1):
                 choose_auth = request.form.get(''+str(i)+'', None)
                 print("\n写出查询结果", choose_auth)
                 if choose_auth:
                     try:
-                        therole = model.role.query.filter_by(name=name)
-                        therole.auths.append(model.auth.query.filter_by(name=choose_auth)).first()
+                        therole = model.role.query.filter_by(name=name).first()
+                        therole.auths.append(model.auth.query.filter_by(name=choose_auth).first())
                         db.session.add(therole)
                         db.session.commit()
                     except Exception as e:
                         print(e)
-                        db.session.remove(roleinfo)
+                        deleterole = model.role.query.filter_by(name=name).one()
+                        db.session.delete(deleterole)
                         db.session.commit()
                         return render_template("role_add.html", error="权限添加未成功！")
-                return redirect('/admin/role_add')
+            return redirect('/admin/role_add')
     return render_template("role_add.html", authlists=authlists)
 
 
@@ -181,17 +241,22 @@ def role_list():
     rolelists = model.role.query.all()
     return render_template("role_list.html", rolelists=rolelists)
 
+
 @admins.route("/admin/admin_add", methods=['POST', 'GET'])
 def admin_add():
     rolelists = model.role.query.all()
     if request.method == "POST":
         name = request.form.get('input_name', None)
-        pwd = request.form.get('input_pwd', None)
+        # pwd = request.form.get('input_pwd', None)
+        import hashlib
+        pwd_temp = hashlib.md5(request.form['input_pwd'].encode('utf8'))     # md5加密
+        password = pwd_temp.hexdigest()
+
         admin_add_role = request.form.get('admin_add_role', None)
         if model.admin.query.filter_by(name=name).first():
             return render_template("admin_add.html", error="已存在此管理员！")
         else:
-            administrator = model.admin(name=name, pwd=pwd, is_super=2)
+            administrator = model.admin(name=name, pwd=password, is_super=2)
             db.session.add(administrator)
             db.session.commit()
             theadmin = model.admin.query.filter_by(name=name).first()

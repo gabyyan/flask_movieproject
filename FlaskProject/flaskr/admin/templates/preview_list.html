@@ -4,6 +4,12 @@
 {% block content_header %}
     <li><a href="#"><i class="fa fa-dashboard"></i> 预告管理</a></li>
     <li class="active">预告列表</li>
+    <style>
+    img{
+        width: 50px;
+        height: 35px;
+    }
+    </style>
 {% endblock %}
 
 
@@ -38,7 +44,8 @@
                 <td>{{ i.id }}</td>
                 <td>{{ i.title }}</td>
                 <td>
-                    <img data-src="holder.js/140x64" class="img-responsive center-block" alt="">
+                    <img data-src="holder.js/140x64" class="img-responsive center-block" name="select_logo" alt="你的图片被吃掉了"
+                         src="../static/pic/log/{{ i.logo }}">
                 </td>
                 <td>{{ i.addTime }}</td>
                 <td>
@@ -64,5 +71,3 @@
     </div>
 </div>
 {% endblock %}
-
-

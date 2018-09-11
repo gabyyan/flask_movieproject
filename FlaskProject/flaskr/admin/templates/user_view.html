@@ -1,0 +1,62 @@
+{% extends "admin_bootstrap.html" %}
+
+
+{% block content_header %}
+    <li><a href="#"><i class="fa fa-dashboard"></i> 会员管理</a></li>
+    <li class="active">查看会员</li>
+{% endblock %}
+
+
+{% block content_col12 %}
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">会员详情</h3>
+    </div>
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                <td class="td_bd">编号：</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td class="td_bd">昵称：</td>
+                <td>拓荒者</td>
+            </tr>
+            <tr>
+                <td class="td_bd">邮箱：</td>
+                <td>1780316635@qq.com</td>
+            </tr>
+            <tr>
+                <td class="td_bd">手机：</td>
+                <td>13700632835</td>
+            </tr>
+            <tr>
+                <td class="td_bd">头像：</td>
+                <td>
+                    <img data-src="holder.js/100x100" class="img-responsive" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td class="td_bd">注册时间：</td>
+                <td>
+                    2017-01-01 12:00:00
+                </td>
+            </tr>
+            <tr>
+                <td class="td_bd">唯一标志符：</td>
+                <td>
+                    xxxxxx
+                </td>
+            </tr>
+            <tr>
+                <td class="td_bd">个性简介：</td>
+                <td>
+                    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

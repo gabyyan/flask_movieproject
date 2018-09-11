@@ -16,7 +16,8 @@ class user(db.Model):
     phone = db.Column(db.String(30), nullable=False)
     info = db.Column(db.Text, nullable=True)
     face = db.Column(db.String(30), nullable=True)
-    loginTime = db.Column(db.DateTime, nullable=True, default=datetime.datetime.now())
+    # loginTime = db.Column(db.DateTime, nullable=True, onupdate=datetime.datetime.now())
+    registTime = db.Column(db.DateTime, nullable=True, default=datetime.datetime.now())
     uuid = db.Column(db.String(32), nullable=True, default=gen_id)
 
     loginlogs = db.relationship("loginlog", back_populates='userId')
@@ -109,8 +110,11 @@ class auth(db.Model):
     url = db.Column(db.String(600), nullable=False)
     addTime = db.Column(db.DateTime, index=True, nullable=False, default=datetime.datetime.now())
 
-    role_id = db.Column("role", db.ForeignKey('role.id'))
+    role_id = db.Column("role", db.ForeignKey('role.id', ondelete="SET NULL"))
     role = db.relationship("role", back_populates="auths")
+
+    def __repr__(self):
+        return "%s" % (self.name)
 
 
 class role(db.Model):
@@ -120,7 +124,7 @@ class role(db.Model):
     auths = db.relationship("auth", back_populates="role")
     addTime = db.Column(db.DateTime, index=True, nullable=False, default=datetime.datetime.now())
 
-    admin_id = db.Column('admin', db.ForeignKey('admin.id'))
+    admin_id = db.Column('admin', db.ForeignKey('admin.id', ondelete="SET NULL"))
     admin = db.relationship('admin', back_populates='roles')
 
     def __repr__(self):
@@ -130,11 +134,12 @@ class role(db.Model):
 class admin(db.Model):
     id = db.Column(db.INTEGER, primary_key=True, autoincrement=True)
     name = db.Column(db.String(30), nullable=False, unique=True)
-    pwd = db.Column(db.String(30), nullable=False)
+    pwd = db.Column(db.String(32), nullable=False)
     is_super = db.Column(db.SmallInteger, nullable=False)
+    addTime = db.Column(db.DateTime, index=True, nullable=False, default=datetime.datetime.now())
+
     oplogs = db.relationship("oplog", back_populates="adminId")
     adminlogs = db.relationship("adminlog", back_populates="adminId")
-
     roles = db.relationship('role', back_populates='admin')
 
 

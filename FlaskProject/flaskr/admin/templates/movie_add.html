@@ -18,8 +18,8 @@
                 <label for="input_title">片名</label>
                 <input type="text" class="form-control" id="input_title" name="input_title" placeholder="请输入片名！">
             </div>
-            <div class="form-group">
-                <label for="input_url">文件</label>
+            <div class="form-group" id="select_movie_file">
+                <label for="input_url" id="input_file_click">文件</label>
                 <input type="file" id="input_url" name="input_url">
                 <div style="margin-top:5px;">
                     <div id="moviecontainer"></div>
@@ -29,11 +29,11 @@
                 <label for="input_info">介绍</label>
                 <textarea class="form-control" rows="10" id="input_info" name="input_info"></textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="select_pic_file">
                 <label for="input_logo">封面</label>
                 <input type="file" id="input_logo" name="input_logo">
-                <img data-src="holder.js/262x166" style="margin-top:5px;" class="img-responsive"
-                     alt="">
+                <img data-src="holder.js/262x166" style="margin-top:5px;" class="img-responsive" id="select_logo"
+                     alt="您的图片被吃了！">
             </div>
             <div class="form-group">
                 <label for="input_star">星级</label>
@@ -60,7 +60,6 @@
             <div class="form-group">
                 <label for="input_length">片长</label>
                 <input type="text" class="form-control" id="input_length" name="input_length" placeholder="请输入片长！">
-{#                <input size="16" type="text"  readonly class="form_datetime">#}
             </div>
             <div class="form-group">
                 <label for="input_release_time">上映时间</label>
@@ -86,35 +85,73 @@
 
 
 {% block js %}
-    <script src="../static/admin/plugins/datepicker/bootstrap-datepicker.js"></script>
-    <script src="../static/admin/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js" charset="UTF-8"></script>
+<script src="../static/admin/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="../static/admin/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js" charset="UTF-8"></script>
 
 
-    <script>
-        $(document).ready(function(){
-            $('#input_release_time').datepicker({
-                autoclose: true,
-                format: 'yyyy-mm-dd',
-                language: 'zh-CN',
-            });
+<script>
+    $(document).ready(function(){
+        $('#input_release_time').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd',
+            language: 'zh-CN',
         });
-    </script>
+    });
+</script>
 
 
-    <script>
+
+
+<script type="text/javascript">
+jwplayer("moviecontainer").setup({
+    flashplayer: "../static/jwplayer/jwplayer.flash.swf",
+    {#playlist: [{#}
+        {#file: "../static/video/htpy.mp4",#}
+        {#title: "环太平洋"#}
+    {# }],#}
+    modes: [{
+        type: "flash",
+        src: "../static/jwplayer/jwplayer.flash.swf"
+    }],
+    "playlist.position": "left",
+    "playlist.size": 200,
+    height: 250,
+    width: 387,
+ });
+</script>
+
+
+<script>
+    $('#input_url').change(function () {
+        var filename = $('#input_url').val();
+        var strFileName =  filename.substring(filename.lastIndexOf("\\")+1);
+        var title = $('#input_title').val();
         jwplayer("moviecontainer").setup({
-                              flashplayer: "../static/jwplayer/jwplayer.flash.swf",
-                              file: "../static/video/我的局局.mp4",
-                              height: 300,
-                              width: 400
-          });
-    </script>
+            flashplayer: "../static/jwplayer/jwplayer.flash.swf",
+            playlist: [{
+                file: "../static/video/"+strFileName,
+                title: title,
+            }],
+            modes: [{
+                type: "flash",
+                src: "../static/jwplayer/jwplayer.flash.swf"
+            }],
+            "playlist.position": "left",
+            "playlist.size": 200,
+            height: 250,
+            width: 387,
+         });
+    })
+</script>
 
-
-{#    <script src="../static/admin/bootstrap-datetimepicker-master/bootstrap-datetimepicker.js"></script>#}
-{#    <script src="../static/admin/bootstrap-datetimepicker-master/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>#}
-{#    <script>#}
-{#        $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});#}
-{#    </script>#}
+<script>
+    $('#select_pic_file').change(function(){
+            var fpicName = $('#input_logo').val();
+            var strPicName = fpicName.substring(fpicName.lastIndexOf("\\")+1);
+            console.log("pip");
+            console.log(strPicName);
+            $('#select_logo').attr("src","../static/pic/log/"+strPicName);
+        });
+</script>
 {% endblock %}
 

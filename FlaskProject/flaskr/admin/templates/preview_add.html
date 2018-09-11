@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="input_logo">预告封面</label>
                     <input type="file" id="input_logo" name="input_logo">
-                    <img data-src="holder.js/700x320" style="margin-top:5px;" class="img-responsive"
+                    <img data-src="holder.js/700x320" style="margin-top:5px;" class="img-responsive" id="select_logo"
                          alt="">
                 </div>
             </div>
@@ -32,4 +32,17 @@
             <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
         </form>
     </div>
+{% endblock %}
+
+
+{% block js %}
+<script>
+    $('#input_logo').change(function(){
+            var fpicName = $('#input_logo').val();
+            var strPicName = fpicName.substring(fpicName.lastIndexOf("\\")+1);
+            console.log("pic");
+            console.log(strPicName);
+            $('#select_logo').attr("src","../static/pic/log/"+strPicName);
+        });
+</script>
 {% endblock %}

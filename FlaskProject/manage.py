@@ -19,11 +19,6 @@ manager = Manager(app)
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
 
-# admin = Admin(app=app,
-#               #base_template='my_base.html',
-#               index_view=AdminIndexView(template='movie_add.html')
-#               )
-
 
 @manager.command
 def hello():
