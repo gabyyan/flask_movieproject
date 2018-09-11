@@ -11,36 +11,16 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/FlaskProject$homeviews.coverage" NAME="homeviews Coverage Results" MODIFIED="1535705372171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flaskr/home" />
-    <SUITE FILE_PATH="coverage/FlaskProject$FlaskProject.coverage" NAME="FlaskProject Coverage Results" MODIFIED="1536589509135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FlaskProject$FlaskProject.coverage" NAME="FlaskProject Coverage Results" MODIFIED="1536671272294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/FlaskProject$get_preview.coverage" NAME="get_preview Coverage Results" MODIFIED="1536670897613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flaskr/admin" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tag_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/tag_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="140" selection-start-line="140" selection-end-line="141" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="movie_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/movie_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="166" column="20" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="20" />
-              <folding>
-                <element signature="e#5057#5813#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminviews.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="adminviews.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/flaskr/admin/adminviews.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
+            <state relative-caret-position="113">
+              <caret line="174" column="60" selection-start-line="174" selection-start-column="60" selection-end-line="174" selection-end-column="60" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -48,11 +28,41 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="preview_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/preview_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="132" column="9" lean-forward="true" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_bootstrap.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/admin_bootstrap.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="30" selection-start-line="30" selection-end-line="31" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flaskr/admin/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskr/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-195">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="14" />
+            <state relative-caret-position="1365">
+              <caret line="93" column="8" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -64,23 +74,13 @@
       <list>
         <option value="Flask Main" />
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>preview_list</find>
-      <find>preview</find>
-      <find>role</find>
-      <find>foreign</find>
-      <find>auto_now</find>
-      <find>consle</find>
-      <find>static/pic/</find>
-      <find>我的</find>
-      <find>.img-responsive'</find>
-      <find>select_movie_fileselect_pic_file</find>
       <find>user_view</find>
       <find>tag_id</find>
       <find>edit_tag</find>
@@ -92,22 +92,30 @@
       <find>remove</find>
       <find>postMsg</find>
       <find>confirm</find>
-      <find>find_id</find>
       <find>formobj</find>
-      <find>formdata</find>
       <find>getlist</find>
       <find>select</find>
       <find>edit_movie</find>
-      <find>myModal_edit</find>
       <find>label_tagid</find>
       <find>movie_id</find>
+      <find>formdata</find>
+      <find>find_id</find>
+      <find>tag_form</find>
+      <find>myModal_edit</find>
+      <find>select_tag_id</find>
+      <find>movie_list</find>
+      <find>del_tag</find>
+      <find>yes_or_no</find>
+      <find>modal</find>
+      <find>static</find>
+      <find>logo</find>
+      <find>print</find>
+      <find>admin.index</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/flaskr/home/__init__.py" />
-        <option value="$PROJECT_DIR$/flaskr/static/base.css" />
         <option value="$PROJECT_DIR$/flaskr/home/templates/index_bootstrap.html" />
         <option value="$PROJECT_DIR$/flaskr/home/templates/base.html" />
         <option value="$PROJECT_DIR$/flaskr/home/templates/animation.html" />
@@ -130,7 +138,6 @@
         <option value="$PROJECT_DIR$/flaskr/home/templates/tag_list.html" />
         <option value="$PROJECT_DIR$/flaskr/home/views.py" />
         <option value="$PROJECT_DIR$/flaskr/admin/adminmodel.py" />
-        <option value="$PROJECT_DIR$/flaskr/admin/__init__.py" />
         <option value="$PROJECT_DIR$/flaskr/home/form.py" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/tag_add.html" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/role_add.html" />
@@ -144,19 +151,22 @@
         <option value="$PROJECT_DIR$/flaskr/static/admin/plugins/jQueryUI/jquery-ui.js" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/role_list.html" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/admin_list.html" />
-        <option value="$PROJECT_DIR$/flaskr/model.py" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/user_view.html" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/user_list.html" />
         <option value="$PROJECT_DIR$/flaskr/home/templates/index.html" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/preview_add.html" />
-        <option value="$PROJECT_DIR$/flaskr/admin/templates/preview_list.html" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/movie_add.html" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/flaskr/__init__.py" />
-        <option value="$PROJECT_DIR$/flaskr/admin/templates/admin_bootstrap.html" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/tag_list.html" />
-        <option value="$PROJECT_DIR$/flaskr/admin/adminviews.py" />
         <option value="$PROJECT_DIR$/flaskr/admin/templates/movie_list.html" />
+        <option value="$PROJECT_DIR$/flaskr/admin/pachong_html/2.html" />
+        <option value="$PROJECT_DIR$/flaskr/model.py" />
+        <option value="$PROJECT_DIR$/flaskr/admin/get_preview.py" />
+        <option value="$PROJECT_DIR$/flaskr/admin/__init__.py" />
+        <option value="$PROJECT_DIR$/flaskr/admin/templates/admin_bootstrap.html" />
+        <option value="$PROJECT_DIR$/flaskr/admin/templates/preview_list.html" />
+        <option value="$PROJECT_DIR$/flaskr/admin/adminviews.py" />
       </list>
     </option>
   </component>
@@ -172,16 +182,17 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="52" />
-    <option name="y" value="268" />
-    <option name="width" value="1082" />
-    <option name="height" value="560" />
+    <option name="x" value="49" />
+    <option name="y" value="48" />
+    <option name="width" value="1011" />
+    <option name="height" value="552" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -204,7 +215,8 @@
               <item name="FlaskProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlaskProject" type="462c0819:PsiDirectoryNode" />
               <item name="flaskr" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FlaskProject" type="b2602c69:ProjectViewProjectNode" />
@@ -215,7 +227,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -229,18 +240,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/flaskr/admin" />
       <recent name="$PROJECT_DIR$/flaskr/static/pic/log" />
       <recent name="$PROJECT_DIR$/flaskr/static/pic/pic_12" />
       <recent name="$PROJECT_DIR$/flaskr/static/admin/bootstrap-datetimepicker-master" />
       <recent name="$PROJECT_DIR$/flaskr/admin/templates" />
-      <recent name="$PROJECT_DIR$/flaskr/home/templates" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/flaskr/admin/pachong_html" />
       <recent name="$PROJECT_DIR$/flaskr/static/js" />
       <recent name="$PROJECT_DIR$/flaskr/static/pic" />
       <recent name="$PROJECT_DIR$/flaskr/static/pic/log" />
       <recent name="$PROJECT_DIR$/flaskr/static/video" />
-      <recent name="$PROJECT_DIR$/flaskr/static/admin/bootstrap-datetimepicker-master" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -256,6 +267,25 @@
     </option>
   </component>
   <component name="RunManager" selected="Flask server.FlaskProject">
+    <configuration name="get_preview" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FlaskProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flaskr/admin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flaskr/admin/get_preview.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="homeviews" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="FlaskProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -295,9 +325,11 @@
     <list>
       <item itemvalue="Flask server.FlaskProject" />
       <item itemvalue="Python.homeviews" />
+      <item itemvalue="Python.get_preview" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.get_preview" />
         <item itemvalue="Python.homeviews" />
       </list>
     </recent_temporary>
@@ -316,7 +348,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="-4" width="1011" height="604" extended-state="6" />
+    <frame x="48" y="-11" width="1319" height="780" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -324,11 +356,12 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49892008" weight="0.32786885" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.23904383" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.088751286" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49892008" visible="true" weight="0.10852713" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.11354582" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.21458508" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.68326694" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -339,30 +372,29 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.6846473" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17230527" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19195047" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49892008" weight="0.21906693" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.6855984" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49892008" visible="true" weight="0.123689726" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.6846473" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995943" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.19472617" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.23904383" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5010799" side_tool="true" weight="0.4192872" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3995943" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,38 +403,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/tag_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/admin/adminviews.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="45" column="10" selection-start-line="45" selection-start-column="10" selection-end-line="48" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/movie_add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1455">
@@ -484,11 +490,6 @@
     <entry file="file://$PROJECT_DIR$/flaskr/static/js/holder.min.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/admin_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/admin_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
@@ -525,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/preview_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/role_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11">
@@ -550,9 +544,6 @@
           <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/admin/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -573,13 +564,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/adminloginlog_list.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/admin_bootstrap.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/home/templates/regist.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -623,36 +607,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-195">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/flaskr/static/js/bootstrap-table.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/admin/adminviews.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="121" column="43" selection-start-line="121" selection-start-column="43" selection-end-line="121" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/flaskr/static/js/bootstrap-table.css">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/tag_list.html">
+    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/admin_add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="140" selection-start-line="140" selection-end-line="141" selection-end-column="71" />
+        <state relative-caret-position="-157">
+          <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/movie_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="166" column="20" selection-start-line="166" selection-start-column="15" selection-end-line="166" selection-end-column="20" />
+        <state relative-caret-position="15">
+          <caret line="161" column="74" selection-start-line="161" selection-start-column="74" selection-end-line="161" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/tag_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="93" column="8" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/admin/get_preview.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/admin/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/admin/html_2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="200" column="36" selection-start-line="200" selection-start-column="36" selection-end-line="200" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/admin_bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="30" selection-start-line="30" selection-end-line="31" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/admin/templates/preview_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="132" column="9" lean-forward="true" selection-start-line="132" selection-start-column="9" selection-end-line="132" selection-end-column="9" />
           <folding>
-            <element signature="e#5057#5813#0#HTML" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flaskr/admin/adminviews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="174" column="60" selection-start-line="174" selection-start-column="60" selection-end-line="174" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>

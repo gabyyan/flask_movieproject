@@ -24,10 +24,11 @@
         </div>
     </div>
     <div class="box-body table-responsive no-padding">
-        <table class="table table-hover">
+        <table class="table table-hover" id="table">
             <tbody>
             <tr>
-                <th>编号</th>
+{#                <th id="table1"></th>#}
+                <th>id</th>
                 <th>片名</th>
                 <th>片长</th>
                 <th>标签</th>
@@ -40,15 +41,15 @@
             </tr>
             {% for i in movielists %}
             <tr>
-                <td>{{ i.id }}</td>
-                <td>{{ i.title }}</td>
-                <td>{{ i.length }}</td>
-                <td>{{ i.tags }}</td>
-                <td>{{ i.area }}</td>
-                <td>{{ i.star }}</td>
+                <td name="id">{{ i.id }}</td>
+                <td name="title">{{ i.title }}</td>
+                <td name="length">{{ i.length }}</td>
+                <td name="tags">{{ i.tags }}</td>
+                <td name="area">{{ i.area }}</td>
+                <td name="star">{{ i.star }}</td>
                 <td>0</td>
                 <td>0</td>
-                <td>{{ i.release_time }}</td>
+                <td name="release_time">{{ i.release_time }}</td>
                 <td>
                     <span class="edit_movie"><a class="label label-success"  id="edit_movie">编辑</a></span>
                     &nbsp;
@@ -73,24 +74,19 @@
 </div>
 
 
-<div class="modal" id="myModal_edit" tabindex="-1">
-    <!-- 窗口声明 -->
+<div class="modal" id="myModal_edit" tabindex="-1" data-backdrop="static">
     <div class="modal-dialog">
-        <!-- 内容声明 -->
         <div class="modal-content">
-            <!-- 头部 -->
             <div class="modal-header">
                 <button type="button" class="close" name="cancel" data-dismiss="modal">
                 <span>&times;</span>
                 </button>
                 <h4 class="modal-title text-danger">修改标签</h4>
             </div>
-            <!-- 主体 -->
             <div class="modal-body">
                 <form id="movie_form">
                     <div class="form-group">
                     <label for="movie_id" id="movie_id" style="margin-right: 20px;">id </label>
-
                     </div>
                     <div class="form-group">
                         <label for="title">片名</label>
@@ -122,7 +118,6 @@
                     </div>
                 </form>
             </div>
-            <!-- 注脚 -->
             <div class="modal-footer">
                 <button type="submit" name="confirm_edit_tag" class="btn btn-default">确定</button>
                 <button type="button" class="btn btn-primary" name="cancel" data-dismiss="modal">取消</button>
@@ -132,7 +127,7 @@
 </div>
 
 <!-------------- 删除标签 ------------------------>
-<div class="modal" id="myModal_del" tabindex="-1">
+<div class="modal" id="myModal_del" tabindex="-1" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -159,56 +154,100 @@
         var formdata = {};
         var the_id;
         the_id = $(this).parent().prev().prev().prev().prev().prev().prev().prev().prev().prev().text();
-        console.log(the_id);
+        {#console.log(the_id);#}
         $("#myModal_edit").modal('show');
-        var label_tagid = "<label class='need_to_del' name='find_id'>"+the_id+"</label>";
+        var label_tagid = "<label class='need_to_del' name='find_id' style='color: red;'>"+the_id+"</label>";
         $("label[id='movie_id']").after(label_tagid);
         $(this).parent().prevAll().each(function(){
-            console.log("11111")
-            console.log($(this).attr('name'));
-            console.log("22222")
-            console.log($("input[name="+$(this).attr('name')+"]"))
             $("input[name="+$(this).attr('name')+"]").val($(this).text());
-            console.log("3333")
-            console.log($(this).text())
         });
     });
 
         $("button[name='confirm_edit_tag']").click(function(){
-            $('#myModal_edit input').each(function(){
-                formdata[$(this).attr('name')] = $(this).val()
-            });
-            console.log("运行到 点击 confirm ");
+            var postMsg = {};
+            var formdata = {};
             postMsg={'csrf_token':'{{csrf_token()}}'};
             postMsg.op='movie_edit';
             postMsg.id = $("label[name='find_id']").text();
-            $("#tag_form input").each(function(){
-                formdata[$(this).attr('name')] = $(this).val();
+            $('#myModal_edit input').each(function(){
+                formdata[$(this).attr('name')] = $(this).val()
             });
             var labels =[];
-            $("select[name='select_tag_id'] options:selected").each(function(){
+            $("select[name='select_tag_id'] option:selected").each(function(){
                 labels.push($(this).text())
             });
             formdata.label_list = labels;
             postMsg.formdata=JSON.stringify(formdata);
+            {#console.log("yun xing")#}
+            {#console.log(formdata)#}
+            console.log(postMsg);
             $.post("{{ url_for('.movie_list') }}", postMsg, function(data){
-                    console.log("运行到 ajax ");
-                    if(data == "ok"){
-                        alert("修改成功！");
-                        $(".need_to_del").remove();
-                        window.location.reload();
-                     }
-                    else{
-                        alert("修改失败，请重试");
-                        $(".need_to_del").remove();
-                        window.location.reload();
-                     }
-                 })
-            });
+                console.log("运行到 ajax ");
+                if(data == "ok"){
+                    alert("修改成功！");
+                    $(".need_to_del").remove();
+                    window.location.reload();
+                }
+                else{
+                    alert("修改失败，请重试");
+                    $(".need_to_del").remove();
+                    window.location.reload();
+                }
+            })
+        });
+
+
+    $('.del_movie').click(function(){
+        var postMsg = {};
+        var the_id;
+        $("#myModal_del").modal('show');
+        var yes_or_no = '<p class="need_to_del" style="margin-left: 15px;">' + '确认删除标签名为' +
+            '<span style="color: red;">'+ $(this).parent().prev().prev().prev().prev().prev().prev().prev().prev().text() +'</span>的标签吗？</p>';
+        $('div[name="P_label"]').after(yes_or_no);
+        the_id=$(this).parent().prev().prev().prev().text();
+        console.log("del");
+
+        $('button[name="confirm_def_tag"]').click(function () {
+            postMsg={'csrf_token':'{{csrf_token()}}'};
+            postMsg.op='del_movie';
+            postMsg.id = the_id;
+            $.post("{{ url_for('.tag_list') }}", postMsg, function(data){
+                if(data == "ok"){
+                    alert("删除成功！");
+                    $(".need_to_del").remove();
+                    window.location.reload();
+                 }
+                else if(data == "error") {
+                    alert("删除失败，请重试");
+                    $(".need_to_del").remove();
+                    window.location.reload();
+                }
+            })
+        });
+     });
 
     $('button[name="cancel"]').click(function () {
         $(".need_to_del").remove();
     })
 
     </script>
+
+
+
+{#<script type="text/javascript" src="../static/js/bootstrap-table.js"></script>#}
+{#<link href="../static/js/bootstrap-table.css" rel="stylesheet">#}
+    {#$('#table').bootstrapTable({#}
+    {#    columns: [{#}
+    {#    title: '行号',#}
+    {#    align: 'center',#}
+    {#    valign: 'bottom',#}
+    {#    formatter: function(value, row, index) {#}
+    {#    return index + 1;#}
+    {#    }#}
+    {#    }]#}
+    {# });#}
+
+
+
+
 {% endblock %}

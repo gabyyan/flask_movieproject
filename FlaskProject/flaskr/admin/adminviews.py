@@ -5,9 +5,23 @@ from flaskr import db
 
 import json
 
+from bs4 import BeautifulSoup
+import requests
+import re
 
-@admins.route("/admin")
+@admins.route("/admin/")
 def admin():
+    # headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0'}
+    # res1 = requests.get('https://movie.douban.com/trailers/', headers=headers)
+    # # print(res1.text)
+    # # with open("html_2.html", encoding='utf-8') as f:
+    # soup = BeautifulSoup(res1.text, features='lxml')
+    #
+    # for img in soup.select("li img"):
+    #     # print(img.get('alt'))
+    #     preview_add = model.preview(title=str(img.get('alt')), logo=str(img.get('src')))
+    #     db.session.add(preview_add)
+    #     db.session.commit()
     return render_template("admin_bootstrap.html")
 
 
@@ -98,11 +112,12 @@ def movie_add():
     return render_template("movie_add.html", taglists=taglists)
 
 
-@admins.route("/admin/movie_list")
+@admins.route("/admin/movie_list", methods=['POST', 'GET'])
 def movie_list():
     movielists = model.movie.query.all()
     taglists = model.tag.query.all()
-    if request.method == "POST":
+    print("运行到 movie_list")
+    if request.method == 'POST':
         op = request.form.get('op',None)
         the_id = request.form.get('id',None)
         if op == "movie_edit":
@@ -110,8 +125,8 @@ def movie_list():
             formobj = json.loads(formdata)
             teacherList = []
             for i in formobj['label_list']:
-                teacherList.append(model.label.query.filter_by(name=i).first())
-
+                teacherList.append(model.tag.query.filter_by(tagName=i).first())
+            print("teacherList\n",teacherList)
             edit_movie = model.movie.query.filter_by(id=the_id).first()
             print("edit_movie\n", edit_movie)
             edit_movie.title = formobj['title']
@@ -119,8 +134,19 @@ def movie_list():
             edit_movie.area = formobj['area']
             edit_movie.star = formobj['star']
             edit_movie.release_time = formobj['release_time']
-            edit_movie.tags.set(teacherList)
+            # edit_movie.tags.set(teacherList)####################################################  没有 set 属性
+            edit_movie.tags = []
+            edit_movie.tags = teacherList
             db.session.commit()
+            return "ok"
+        elif op == "del_movie":
+            try:
+                delmovie = model.movie.query.filter_by(id=the_id).first()
+                db.session.remove(delmovie)
+                db.session.commit()
+            except Exception as e:
+                print("打印删除电影的时候出现的错误", e)
+                return "error"
     return render_template("movie_list.html", movielists=movielists, taglists=taglists)
 
 
@@ -136,13 +162,21 @@ def preview_add():
         except Exception as e:
             print("添加预告的时候出错", e)
             return render_template("preview_add.html", error="添加出错，请刷新重试！")
+
     return render_template("preview_add.html")
 
 
-@admins.route("/admin/preview_list")
+@admins.route("/admin/preview_list", methods=['POST', 'GET'])
 def preview_list():
     previeslists = model.preview.query.all()
-    return render_template("preview_list.html", previeslists=previeslists)
+
+    page=request.args.get('page',1,type=int)  #从request的参数中获取参数page的值，如果参数不存在那么返回默认值1，type=int保证返回的默认值是整形数字
+    print("page",page)
+    pagination=model.preview.query.paginate(page,per_page=15,error_out=True)
+    previeslists=pagination.items
+    print("posts\n", previeslists)
+    return render_template('preview_list.html', previeslists=previeslists, pagination=pagination)
+    # return render_template("preview_list.html", previeslists=previeslists)
 
 
 @admins.route("/admin/user_list")

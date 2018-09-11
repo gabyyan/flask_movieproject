@@ -64,7 +64,7 @@
 
 {#<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#my Modal">点击弹窗</button>#}
     <!-- 模态声明，show 表示显示 -->
-<div class="modal" id="myModal_edit" tabindex="-1">
+<div class="modal" id="myModal_edit" tabindex="-1" data-backdrop="static">
     <!-- 窗口声明 -->
     <div class="modal-dialog">
         <!-- 内容声明 -->
@@ -106,7 +106,7 @@
 
 
 <!-------------- 删除标签 ------------------------>
-<div class="modal" id="myModal_del" tabindex="-1">
+<div class="modal" id="myModal_del" tabindex="-1" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -143,12 +143,11 @@
 
         $("button[name='confirm_edit_tag']").click(function(){
             console.log("运行到 点击 confirm ");
+            postMsg={'csrf_token':'{{csrf_token()}}'};
+            postMsg.op='edit_tag';
+            postMsg.id = $("label[name='find_id']").text();
             $("#tag_form input").each(function(){
-                postMsg={'csrf_token':'{{csrf_token()}}'};
-                postMsg.op='edit_tag';
-                postMsg.id = $("label[name='find_id']").text();
                 formdata[$(this).attr('name')] = $(this).val();
-                {#formdata.id = $("label[name='find_id']").text();#}
                 postMsg.formdata=JSON.stringify(formdata);
                 console.log("运行到 ajax之前 ");
             });
@@ -164,8 +163,8 @@
                         $(".need_to_del").remove();
                         window.location.reload();
                      }
-                 })
-            });
+            })
+        });
     });
 
     $('.del_tag').click(function(){
