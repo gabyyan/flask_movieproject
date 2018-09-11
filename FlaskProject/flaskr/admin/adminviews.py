@@ -11,17 +11,6 @@ import re
 
 @admins.route("/admin/")
 def admin():
-    # headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0'}
-    # res1 = requests.get('https://movie.douban.com/trailers/', headers=headers)
-    # # print(res1.text)
-    # # with open("html_2.html", encoding='utf-8') as f:
-    # soup = BeautifulSoup(res1.text, features='lxml')
-    #
-    # for img in soup.select("li img"):
-    #     # print(img.get('alt'))
-    #     preview_add = model.preview(title=str(img.get('alt')), logo=str(img.get('src')))
-    #     db.session.add(preview_add)
-    #     db.session.commit()
     return render_template("admin_bootstrap.html")
 
 
@@ -123,10 +112,10 @@ def movie_list():
         if op == "movie_edit":
             formdata = request.form.get('formdata', None)
             formobj = json.loads(formdata)
-            teacherList = []
+            lable_list = []
             for i in formobj['label_list']:
-                teacherList.append(model.tag.query.filter_by(tagName=i).first())
-            print("teacherList\n",teacherList)
+                lable_list.append(model.tag.query.filter_by(tagName=i).first())
+            print("lable_list\n",lable_list)
             edit_movie = model.movie.query.filter_by(id=the_id).first()
             print("edit_movie\n", edit_movie)
             edit_movie.title = formobj['title']
@@ -136,7 +125,7 @@ def movie_list():
             edit_movie.release_time = formobj['release_time']
             # edit_movie.tags.set(teacherList)####################################################  没有 set 属性
             edit_movie.tags = []
-            edit_movie.tags = teacherList
+            edit_movie.tags = lable_list
             db.session.commit()
             return "ok"
         elif op == "del_movie":
@@ -169,12 +158,24 @@ def preview_add():
 @admins.route("/admin/preview_list", methods=['POST', 'GET'])
 def preview_list():
     previeslists = model.preview.query.all()
-
-    page=request.args.get('page',1,type=int)  #从request的参数中获取参数page的值，如果参数不存在那么返回默认值1，type=int保证返回的默认值是整形数字
-    print("page",page)
+    page=request.args.get('page',1,type=int)        #从request的参数中获取参数page的值，如果参数不存在那么返回默认值1，type=int保证返回的默认值是整形数字
     pagination=model.preview.query.paginate(page,per_page=15,error_out=True)
     previeslists=pagination.items
-    print("posts\n", previeslists)
+    try:
+        headers = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0'}
+        res1 = requests.get('https://movie.douban.com/trailers/', headers=headers)
+        # with open("html_2.html", encoding='utf-8') as f:
+        soup = BeautifulSoup(res1.text, features='lxml')
+        for img in soup.select("li img"):
+            if model.preview.query.filter_by(title=str(img.get('alt'))):
+                print("已经爬到了消息，拒绝保存")
+                return render_template('preview_list.html', previeslists=previeslists, pagination=pagination)
+            else:
+                preview_add = model.preview(title=str(img.get('alt')), logo=str(img.get('src')))
+                db.session.add(preview_add)
+                db.session.commit()
+    except Exception as e:
+        print("在爬取数据提交的时候出现的错误", e)
     return render_template('preview_list.html', previeslists=previeslists, pagination=pagination)
     # return render_template("preview_list.html", previeslists=previeslists)
 

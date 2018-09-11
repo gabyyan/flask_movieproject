@@ -90,7 +90,7 @@ class collection(db.Model):
 
 class preview(db.Model):
     id = db.Column(db.INTEGER, primary_key=True, autoincrement=True)
-    title = db.Column(db.String(50), nullable=False)
+    title = db.Column(db.String(50), nullable=False, unique=True)
     logo = db.Column(db.String(50), nullable=False)
     addTime = db.Column(db.DateTime, index=True, nullable=False, default=datetime.datetime.now())
 
